@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="paukstadt.savechat" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="ANDROID.PERMISSION.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <activity
+            android:name=".Login"
+            android:label="@string/title_activity_login" >
+            <intent-filter android:label="@string/app_name" >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".contacts.ContactsList"
+            android:label="@string/title_activity_contacts_list" >
+        </activity>
+
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings" >
+        </activity>
+
+        <activity
+            android:name=".chat.Chat"
+            android:label="@string/title_activity_chat" >
+        </activity>
+
+        <service android:name=".backgroundworkers.BackgroundService"/>
+
+        <receiver android:name=".backgroundworkers.BootHandler"
+                  android:enabled="true"
+                  android:exported="false"
+                  android:permission="android.permission.RECEIVE_BOOT_COMPLETE">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+        </receiver>
+
+        <service android:name=".backgroundworkers.SyncAdapter_AuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/syncadapter_authenticator"/>
+        </service>
+
+        <provider
+            android:name="paukstadt.savechat.backgroundworkers.SyncAdapter_ContentProvider"
+            android:authorities="paukstadt.savechat.provider"
+            android:exported="false"
+            android:syncable="true"/>
+
+        <service
+            android:name="paukstadt.savechat.backgroundworkers.SyncAdapter_SyncService"
+            android:exported="true"
+            android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter"
+                       android:resource="@xml/syncadapter_sync" />
+        </service>
+
+    </application>
+
+</manifest>

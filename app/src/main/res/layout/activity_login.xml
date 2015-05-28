@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              tools:context=".Login">
+
+    <TextView
+        android:id="@+id/password_text"
+        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="25sp"
+        android:paddingBottom="25sp"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_centerVertical="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:layout_marginBottom="25sp"
+        android:inputType="textPassword"
+        android:hint="@string/password_hint"/>
+
+    <EditText
+        android:id="@+id/password_phonenumber"
+        android:layout_above="@id/password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="@string/password_phonenumber"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/password_alias"
+        android:layout_below="@id/password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/password_alias"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:id="@+id/password_enter"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@id/password_input"
+        android:layout_alignRight="@id/password_input"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:padding="3sp"
+        android:scaleType="fitXY"
+        android:src="@drawable/done"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/password_warning"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="25sp"
+        android:paddingBottom="25sp"
+        android:textSize="20sp"
+        android:textColor="#FF0000"
+        android:gravity="center"
+        android:text="@string/password_warning"/>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/password_warning"
+        android:text="Start"/>
+
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SaveChat</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_details">Details</string>
+
+    <string name="content_desc_avatar">User avatar</string>
+    <string name="content_desc_connection">User connection</string>
+    <string name="content_desc_send">Send message</string>
+
+    <string name="title_activity_login">Login</string>
+    <string name="password_hint">Enter password…</string>
+    <string name="password_phonenumber">Enter phone number…</string>
+    <string name="password_alias">Enter alias…</string>
+    <string name="password_text_first">Welcome to SaveChat! You started the app for the first time. Please enter a password, your phone number and an alias below to start using the app. (A password has to be at least 6 characters long!)</string>
+    <string name="password_text">Welcome to SaveChat! Please enter your password to start using the app.</string>
+    <string name="password_warning">Don\'t forget your password! Your data will be lost!</string>
+
+    <string name="title_activity_contacts_list">Contacts</string>
+    <string name="default_name">TestUserNamegfÄÖÜß</string>
+    <string name="default_status">TestUserStatusfÄÖÜß</string>
+
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="title_activity_chat">Chat</string>
+    <string name="chat_hint">Enter message here…</string>
+</resources>
